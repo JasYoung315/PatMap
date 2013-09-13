@@ -1,4 +1,4 @@
-# PatMap Ver. 1.0 
+# PatMap Ver. 1.0
 
 Mapping software allows the user to calculate the distance between demand and service locations. Also shows all locations
 that are within a certain parameter.
@@ -29,6 +29,15 @@ The Repo also contains an exe built using py2exe. This exe is for 64 bit windows
 the exe does not appear to work on a 32 bit system.
 
 The tool has been used to process several data sets, but still requires testing.
+
+# To do
+
+There are various aspects that will hopefully be improved in the near future:
+
+- Packaging for MacOS
+- Packaging for Linux
+- Cli app
+- Better handling of GUI on variable screen resolutions
 
 ---
 
