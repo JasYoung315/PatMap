@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps - pygmaps </title>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+	function initialize() {
+		var centerlatlng = new google.maps.LatLng(51.639274, -2.686631);
+		var myOptions = {
+			zoom: 10,
+			center: centerlatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			streetViewControl: false 
+		};
+		var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+setMarkers(map,beaches)
+	}
+var beaches = [['NP16 5YX 34', 51.63927409999999, -2.6866313, '0000FF'], ['SA15 3DX 22', 51.7464323, -4.179257, '0000FF'], ['NP44 8YN 38', 51.6462884, -2.9963314, '0000FF'], ['SA20\xc2\xa00LA 18', 51.9986012, -3.7969884, '0000FF'], ['SA61 2PZ 14', 51.8127156, -4.965072399999999, '0000FF'], ['SA14 8QF 11', 51.6916124, -4.135974099999999, '0000FF'], ['NP22 5LY 37', 51.7602973, -3.2888473, '0000FF'], ['NP18 3XQ 40', 51.61318619999999, -2.9667358, '0000FF'], ['SY23 1ER\xc2\xa0\xc2\x80\x8e 12', 52.41606789999999, -4.0715775, '0000FF'], ['LD3 0LS 5', 52.01022769999999, -3.2618067, '0000FF'], ['SY18 6HF 8', 52.4525417, -3.5396866, '0000FF'], ['SY25\xc2\xa06JP 21', 52.2157348, -3.9365074, '0000FF'], ['NP23 8XE 31', 51.7636721, -3.202912, '0000FF'], ['NP7 8NF 39', 51.832908, -2.9949309, '0000FF'], ['NP23 6HA 41', 51.7751867, -3.2093928, '0000FF'], ['SA15 3HF 24', 51.6852306, -4.1628286, '0000FF'], ['SA31 3HB 28', 51.8565587, -4.3334418, '0000FF'], ['LD3 7NS 1', 51.949017, -3.3848144, '0000FF'], ['NP20 4SZ 33', 51.5821944, -3.0028954, '0000FF'], ['SA18\xc2\xa02BQ 16', 51.8090361, -3.9241127, '0000FF'], ['SA14 6BU 23', 51.7714033, -4.1090988, '0000FF'], ['SA18 3AS 26', 51.7945412, -3.9958014, '0000FF'], ['SA31 2AF 13', 51.8675242, -4.284722599999999, '0000FF'], ['LD1 5HF 2', 52.2421174, -3.3774168, '0000FF'], ['SY23 1HB 25', 52.4117914, -4.0708624, '0000FF'], ['NP20 2UB 30', 51.5797981, -2.9981523, '0000FF'], ['LD2 3HE 6', 52.1473674, -3.4103267, '0000FF'], ['SA70\xc2\xa08AG 20', 51.67712179999999, -4.7025475, '0000FF'], ['SA9 1AU 4', 51.76701930000001, -3.7670061, '0000FF'], ['LD7 1DF 7', 52.3418953, -3.0495337, '0000FF'], ['SA46\xc2\xa00JJ 15', 52.242929, -4.2556841, '0000FF'], ['CF82 7GP 32', 51.6544927, -3.2456698, '0000FF'], ['NP25 5BL 36', 51.8101464, -2.7251983, '0000FF'], ['SA43\xc2\xa01DP 17', 52.0827507, -4.65562, '0000FF'], ['SY21 7DU 3', 52.6619937, -3.1429898, '0000FF'], ['NP4 5YA 35', 51.6917165, -3.0262782, '0000FF'], ['SY20 8AD 9', 52.59181969999999, -3.8457506, '0000FF'], ['SA72\xc2\xa06SY 19', 51.693076, -4.9566329, '0000FF'], ['SY16 2DW 10', 52.5211815, -3.3142204, '0000FF'], ['NP7 7EG 29', 51.8246225, -3.0340123, '0000FF'], ['SA61 2QW 27', 51.8126696, -4.9608324, '0000FF'], ['SA44PN Demand : 1', 51.6713447, -4.0356618, 'FFFF00'], ['CF240JW Demand : 1', 51.4846796, -3.1616233, 'FFFF00'], ['CF244BX Demand : 4', 51.493012, -3.1754619, 'FFFF00'], ['CF244DW Demand : 8', 51.4911506, -3.1799513, 'FFFF00'], ['CF24 4BX Demand : 1', 51.493012, -3.1754619, 'FFFF00']]
+function setMarkers(map, locations) {
+	for (var i = 0; i < locations.length; i++) {
+		var beach = locations[i];
+		var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
+		var marker = new google.maps.Marker({
+			position: myLatLng,
+			map: map,
+			 title: beach[0],
+		icon: new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + beach[3])});
+}
+}
+</script>
+</head>
+<body style="margin:0px; padding:0px;" onload="initialize()">
+	<div id="map_canvas" style="width: 100%; height: 100%;"></div>
+</body>
+</html>
