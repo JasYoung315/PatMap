@@ -66,7 +66,6 @@ class MainFrame(wx.Frame):
 		self.HeatDict = {}
 		
 		#The panel makes everything look similar on all platforms
-		#MainPanel = wx.Panel(self,-1)
 		MainPanel =wx.ScrolledWindow(self,wx.ID_ANY)
 		MainPanel.SetScrollbars(1, 1, 1, 1)
 		MainPanel.EnableScrolling(True,True)
@@ -996,10 +995,12 @@ class MainFrame(wx.Frame):
 				wx.MessageBox(BadDataString, 'Unable to find data', wx.OK | wx.ICON_WARNING)
 			
 		if self.AppendOutputSelect.GetValue() == True:
+			
 			try:
 				self.AppendData(DataS,self.FileAppendDict,0)		
 			except:
 				wx.MessageBox('The original data file could not be appended to, it may be open in another location or may no longer exist', 'Original File Not Found', wx.OK | wx.ICON_ERROR)
+			
 		MaxDemand = DataD.itervalues().next()
 		for e in DataD:
 			if DataD[e] > MaxDemand:
@@ -1081,7 +1082,10 @@ class MainFrame(wx.Frame):
 			
 			data[0] += Header
 			for e in data[1:]:
-				e += AppendData[e[self.ChoicePostCol]]
+				try:
+					e += AppendData[e[self.ChoicePostCol]]
+				except:
+					e += ['ERROR','ERROR']
 			
 			outfile = open(CopyFilePath,'wb')
 			output = csv.writer(outfile)
@@ -1093,12 +1097,15 @@ class MainFrame(wx.Frame):
 			AppendWB = openpyxl.load_workbook(CopyFilePath)
 			AppendWS = AppendWB.get_active_sheet()
 			data = [[i.value for i in row] for row in AppendWS.rows]
-			
+			print data
+			print AppendData
+			print 'woof'
 			data[0] +=Header
 			for e in data[1:]:
-				e += AppendData[e[self.ChoicePostCol]]
-			
-			
+				try:
+					e += AppendData[e[self.ChoicePostCol]]
+				except:
+					e += ['ERROR','ERROR']
 			for e in range(len(data)):
 				for i in range(len(data[e])):
 					AppendWS.cell(row = e,column = i).value = data[e][i]
@@ -1115,7 +1122,10 @@ class MainFrame(wx.Frame):
 				
 			data[0] += Header
 			for e in data[1:]:
-				e += AppendData[e[self.ChoicePostCol]]
+				try:
+					e += AppendData[e[self.ChoicePostCol]]
+				except:
+					e += ['ERROR','ERROR']
 			
 			AppendWB = xlwt.Workbook()
 			AppendWS = AppendWB.add_sheet('Sheet 1')

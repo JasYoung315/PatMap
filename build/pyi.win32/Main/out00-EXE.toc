@@ -1,0 +1,10 @@
+('D:\\Dropbox\\CUROP\\pyinstaller-2.0\\Main\\build\\pyi.win32\\Main\\Main.exe',
+ True,
+ False,
+ None,
+ None,
+ [],
+ None,
+ True,
+ 0,
+ 1379331679L)
