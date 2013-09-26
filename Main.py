@@ -150,7 +150,7 @@ class MainFrame(wx.Frame):
 		self.ServiceBlurb.SetFont(HeaderFont)
 		self.OptionsBlurb = wx.StaticText(MainPanel,label = 'Task 3: Options')
 		self.OptionsBlurb.SetFont(HeaderFont)
-		self.DistanceBlurb = wx.StaticText(MainPanel,label = 'Output 1 :Distance')
+		self.DistanceBlurb = wx.StaticText(MainPanel,label = 'Output 1: Distance')
 		self.DistanceBlurb.SetFont(HeaderFont)
 		self.LimitBlurb = wx.StaticText(MainPanel,label = 'Output 2: Limit')
 		self.LimitBlurb.SetFont(HeaderFont)
@@ -455,13 +455,13 @@ class MainFrame(wx.Frame):
 			Title = "Task 3: Options"
 			Text = '''
 			- Tick required output options:\n
-			- Demand Summary: Returns an Excel file with the number of times each postcode appears in your demand file.
+			- Demand Summary: Returns a csv file with the number of times each postcode appears in your demand file.
 			Time and distance between each demand and service location are also given.
-			      - Map output: Updates map with demand and service locations.
-			      - Save Map: Saves the map as a JPEG image.\n				  
+			- Map output: Updates map with demand and service locations.
+			- Save Map: Saves the map as a JPEG image.\n				  
 			- Append data to file: Appends the time and distance to each service location to each observation listed in your demand file.
-			This will automatically be saved in the same location as your demand file, withe _Append added to the demand file name.\n
-			- Choose output save location: Choose the nameand location of the demand summary and map files. If this is not selected, by default they will be saved in the Testdata folder, located within the program folder,
+			This will automatically be saved in the same location as your demand file, with _Append added to the demand file name.\n
+			- Choose output save location: Choose the name and location of the demand summary and map files. If this is not selected, by default they will be saved in the Testdata folder, located within the program folder,
 			with a timestamp as the file names.\n
 			For more detailed information, see the PatMap User Guide.
 			'''
